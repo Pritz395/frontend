@@ -7,4 +7,11 @@ module.exports = defineConfig({
       // implement node event listeners here if needed
     },
   },
+
+  component: {
+    devServer: {
+      framework: "react",
+      bundler: "vite",
+    },
+  },
 });

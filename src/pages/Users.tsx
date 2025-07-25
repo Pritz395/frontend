@@ -188,7 +188,7 @@ export const Users: React.FC = () => {
                   <tr key={user.id} className="hover:bg-gray-50 dark:hover:bg-gray-700">
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
-                        <span className="text-lg mr-3">{getInitials((user.name || `${user.firstName || ''} ${user.lastName || ''}`) as string)}</span>
+                        <span className="text-lg mr-3">{getInitials(user.name || `${user.firstName || ''} ${user.lastName || ''}`) as string}</span>
                         <div>
                           <div className="text-sm font-medium text-gray-900 dark:text-white">
                             {(user.name || `${user.firstName || ''} ${user.lastName || ''}`)?.trim()}

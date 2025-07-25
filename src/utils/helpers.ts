@@ -22,7 +22,7 @@ export const getInitials = (name: string): string => {
   if (!name) return '';
   return name
     .split(' ')
-    .map(n => n[0])
+    .map(n => (n ? n.charAt(0) : ''))
     .join('')
     .toUpperCase();
 };

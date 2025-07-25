@@ -18,7 +18,8 @@ export const Login: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await login(credentials);
+    const success = await login(credentials);
+    console.log('Login success:', success);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

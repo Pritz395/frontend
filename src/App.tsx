@@ -8,10 +8,10 @@ import { AppRoutes } from './routes/AppRoutes';
 
 function App() {
   return (
+    <BrowserRouter>
     <ErrorBoundary>
       <ThemeProvider>
         <AuthProvider>
-          <BrowserRouter>
             <div className="App">
               <AppRoutes />
               <Toaster
@@ -26,10 +26,10 @@ function App() {
                 }}
               />
             </div>
-          </BrowserRouter>
         </AuthProvider>
       </ThemeProvider>
     </ErrorBoundary>
+    </BrowserRouter>
   );
 }
 
