@@ -9,6 +9,7 @@ import {
   Monitor
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { getInitials } from '../../utils/helpers';
 
 interface SidebarProps {
   isOpen: boolean;

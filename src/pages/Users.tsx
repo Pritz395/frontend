@@ -95,11 +95,11 @@ export const Users: React.FC = () => {
     }
   };
 
-  const filteredUsers = (users as UserWithNames[]).filter(user =>
-    (user.name || `${user.firstName || ''} ${user.lastName || ''}`)
+  const filteredUsers = (users || []).filter(user =>
+    (user?.name || `${user?.firstName || ''} ${user?.lastName || ''}` || '')
       .toLowerCase()
       .includes(searchTerm.toLowerCase()) ||
-    (user.email || '').toLowerCase().includes(searchTerm.toLowerCase())
+    (user?.email || '').toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const getStatusColor = (status: string) => {
@@ -184,20 +184,20 @@ export const Users: React.FC = () => {
                 </tr>
               </thead>
               <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                {(filteredUsers as UserWithNames[]).map((user) => (
+                {(filteredUsers || []).map((user) => (
                   <tr key={user.id} className="hover:bg-gray-50 dark:hover:bg-gray-700">
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
-                        <span className="text-lg mr-3">{getInitials(user.name || `${user.firstName || ''} ${user.lastName || ''}`) as string}</span>
+                        <span className="text-lg mr-3">{getInitials(user?.name || `${user?.firstName || ''} ${user?.lastName || ''}`) as string}</span>
                         <div>
                           <div className="text-sm font-medium text-gray-900 dark:text-white">
-                            {(user.name || `${user.firstName || ''} ${user.lastName || ''}`)?.trim()}
+                            {(user?.name || `${user?.firstName || ''} ${user?.lastName || ''}`)?.trim()}
                           </div>
                         </div>
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
-                      {user.email || ''}
+                      {user?.email || ''}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       {canManageUsers && editingRole === user.id ? (

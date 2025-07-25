@@ -38,13 +38,13 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
         <div className="flex items-center space-x-3">
           <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
             <span className="text-sm font-medium text-white">
-              {user ? getInitials(user.name || `${user.firstName || ''} ${user.lastName || ''}`) : 'U'}
+              {user ? getInitials(user?.name || `${user?.firstName || ''} ${user?.lastName || ''}`) : 'U'}
             </span>
           </div>
           
           <div className="hidden sm:block">
             <p className="text-sm font-medium text-gray-900 dark:text-white">
-              {user?.name}
+              {user?.name || `${user?.firstName || ''} ${user?.lastName || ''}`.trim()}
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-400 capitalize">
               {user?.role}
